@@ -1,0 +1,32 @@
+-- Smoke test for extended stdlib modules (string, collections, fs, crypto, sync)
+
+~> io::println("{}", string::to_upper("hello"))
+~> io::println("{}", string::trim("  hi  "))
+~> io::println("{}", string::split("a,b,c", ","))
+~> io::println("{}", string::pad_start("7", 3, "0"))
+
+s :: mut auto = Stack()
+s:push(1)
+s:push(2)
+s:push(3)
+~> io::println("{}", s:pop())
+~> io::println("{}", s:len())
+
+q :: mut auto = Queue()
+q:enqueue("a")
+q:enqueue("b")
+~> io::println("{}", q:dequeue())
+
+~> io::println("{}", crypto::sha256("hello"))
+~> io::println("{}", crypto::base64_encode("hi"))
+
+fs::mkdir("/tmp/cpps_test_dir", true)
+file::write("/tmp/cpps_test_dir/x.txt", "content")
+~> io::println("{}", fs::is_dir("/tmp/cpps_test_dir"))
+
+counter := Atomic(0)
+counter:fetch_add(5)
+~> io::println("{}", counter:get())
+
+pr := process::run("echo hi_from_process")
+~> io::println("{}", pr:unwrap()["stdout"])

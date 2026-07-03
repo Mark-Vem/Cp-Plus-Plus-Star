@@ -1,0 +1,5 @@
+++ main <~ () -> int ** {
+    name := "World"
+    ~> io::println("Hello, {}!", name)
+    <- 0
+}

@@ -1,0 +1,8 @@
+++ worker <~ (id: int) -> void ** {
+    ~> io::println("worker {} running", id)
+}
+++ main <~ () -> int ** {
+    go worker(1)
+    go worker(2)
+    <- 0
+}

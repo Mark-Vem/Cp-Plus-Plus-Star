@@ -1,0 +1,15 @@
+class Animal -> {
+    name :: mut string = ""
+    ++ new <~ (n: string) ** {
+        ~> io::println("Animal ctor called with {}", n)
+        @.name = n
+    }
+}
+class Dog : Animal -> {
+    ++ speak <~ () -> void ** { ~> io::println("{} says Woof!", @.name) }
+}
+++ main <~ () -> int ** {
+    d := Dog::new("Rex")
+    d:speak()
+    <- 0
+}

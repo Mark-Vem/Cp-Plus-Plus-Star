@@ -1,0 +1,11 @@
+++ make_counter <~ () -> void ** {
+    count :: mut int = 0
+    inc := () -> int ** { count = count + 1 <- count }
+    ~> io::println("{}", inc())
+    ~> io::println("{}", inc())
+    ~> io::println("{}", inc())
+}
+++ main <~ () -> int ** {
+    make_counter()
+    <- 0
+}

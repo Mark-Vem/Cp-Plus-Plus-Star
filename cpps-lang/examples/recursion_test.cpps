@@ -1,0 +1,8 @@
+++ fact <~ (n: int) -> int ** {
+    ?? n <= 1 ** { <- 1 }
+    <- n * fact(n - 1)
+}
+++ main <~ () -> int ** {
+    ~> io::println("{}", fact(10))
+    <- 0
+}

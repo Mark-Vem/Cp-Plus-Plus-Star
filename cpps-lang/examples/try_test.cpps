@@ -1,0 +1,15 @@
+++ divide <~ (a: int, b: int) -> int ** {
+    ?? b == 0 ** {
+        !! "division by zero"
+    }
+    <- a / b
+}
+++ main <~ () -> int ** {
+    try ** {
+        r := divide(10, 0)
+        ~> io::println("result: {}", r)
+    } catch (e) ** {
+        ~> io::println("caught: {}", e)
+    }
+    <- 0
+}

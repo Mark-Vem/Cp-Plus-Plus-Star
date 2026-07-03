@@ -1,0 +1,9 @@
+++ main <~ () -> int ** {
+    score := 85
+    ?~ score {
+        90..=100 => { ~> io::println("Xuat sac") },
+        70..89   => { ~> io::println("Tot") },
+        _        => { ~> io::println("Can co gang") }
+    }
+    <- 0
+}

@@ -1,0 +1,12 @@
+++ main <~ () -> int ** {
+    xs := [1, 2, 3, 4, 5]
+    <> x :: xs ** {
+        ~> io::println("{}", x)
+    }
+    sum :: mut int = 0
+    <> x :: xs ** {
+        sum = sum + x
+    }
+    ~> io::println("sum={}", sum)
+    <- 0
+}

@@ -1,0 +1,6 @@
+++ main <~ () -> int ** {
+    own<int> a := 42
+    share<int> b := a
+    ~> io::println("{}", b)
+    <- 0
+}
