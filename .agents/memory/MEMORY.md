@@ -1,2 +1,0 @@
-- [CP+* interpreter project](cpps-lang-notes.md) — custom lang interpreter in `cpps-lang/`; parser AST node classes can exist unused (dead code) — always grep for `NodeClass(` construction sites, not just the class def, to confirm a grammar rule is actually wired up.
-- [CP+* interpreter project](cpps-lang-notes.md) — recursive-descent parser's `expect()` never raises (records error + returns None), so speculative/backtracking parses must snapshot+restore the error list, not just `self.pos`, or failed lookaheads leak phantom diagnostics.
